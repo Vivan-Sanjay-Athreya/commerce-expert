@@ -1,5 +1,7 @@
-import { GotoBlackYellowIcon, MessageDotsOutlinedIcon, AddFilledIcon } from '@getgo/chameleon-icons/react';
+import { GotoBlackYellowIcon, GotoWhiteYellowIcon, MessageDotsOutlinedIcon, AddFilledIcon } from '@getgo/chameleon-icons/react';
 import { Button, Typography } from '@getgo/chameleon-web-react-wrapper';
+
+import { useThemeContext } from 'App';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
 import {
@@ -45,11 +47,16 @@ const Sidebar = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const conversations = useAppSelector(selectConversations);
   const activeId = useAppSelector(selectActiveConversationId);
+  const { theme } = useThemeContext();
 
   return (
     <aside className="sidebar">
       <div className="sidebar__header">
-        <GotoBlackYellowIcon className="sidebar__logo" size="100px" />
+        {theme === 'dark' ? (
+          <GotoWhiteYellowIcon className="sidebar__logo" size="100px" />
+        ) : (
+          <GotoBlackYellowIcon className="sidebar__logo" size="100px" />
+        )}
       </div>
 
       <div className="sidebar__new-chat">

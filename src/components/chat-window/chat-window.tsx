@@ -1,17 +1,18 @@
-import { Button, Typography } from '@getgo/chameleon-web-react-wrapper';
+import { MoonOutlinedIcon, SunOutlinedIcon, AddFilledIcon } from '@getgo/chameleon-icons/react';
+import { Button, IconButton, Typography } from '@getgo/chameleon-web-react-wrapper';
 
 import ChatInput from 'components/chat-input';
 import MessageList from 'components/message-list';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { createConversation, selectActiveConversation } from 'modules/conversations';
+import { useThemeContext } from 'App';
 
 import './chat-window.css';
-import { AddFilledIcon } from '@getgo/chameleon-icons/react';
 
 const ChatWindow = (): JSX.Element => {
   const dispatch = useAppDispatch();
-
   const activeConversation = useAppSelector(selectActiveConversation);
+  const { theme, toggleTheme } = useThemeContext();
 
   return (
     <main className="chat-window">
@@ -19,10 +20,15 @@ const ChatWindow = (): JSX.Element => {
         <Typography tag="h2" variant="heading-medium">
           Commerce Expert
         </Typography>
-        <div className="chat-window__badges">
-          <span className="chat-window__badge chat-window__badge--pm">PM</span>
-          <span className="chat-window__badge chat-window__badge--care">Care Rep</span>
-          <span className="chat-window__badge chat-window__badge--dev">Developer</span>
+        <div className="chat-window__header-right">
+          <div className="chat-window__badges">
+            <span className="chat-window__badge chat-window__badge--pm">PM</span>
+            <span className="chat-window__badge chat-window__badge--care">Care Rep</span>
+            <span className="chat-window__badge chat-window__badge--dev">Developer</span>
+          </div>
+          <IconButton aria-label="Toggle theme" onClick={toggleTheme}>
+            {theme === 'light' ? <MoonOutlinedIcon /> : <SunOutlinedIcon />}
+          </IconButton>
         </div>
       </div>
 

@@ -16,6 +16,12 @@
   flex-shrink: 0;
 }
 
+.chat-window__header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--goto-spacing-03);
+}
+
 .chat-window__badges {
   display: flex;
   gap: var(--goto-spacing-02);
