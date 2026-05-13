@@ -1,0 +1,106 @@
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--goto-surface-color-secondary);
+  border-right: 1px solid var(--goto-border-color-default);
+  overflow: hidden;
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  padding: var(--goto-spacing-04) var(--goto-spacing-04);
+  border-bottom: 1px solid var(--goto-border-color-default);
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.sidebar__logo {
+  display: block;
+}
+
+.sidebar__new-chat {
+  padding: var(--goto-spacing-03) var(--goto-spacing-04);
+  flex-shrink: 0;
+}
+
+.sidebar__list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--goto-spacing-02) var(--goto-spacing-02);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__empty {
+  padding: var(--goto-spacing-04);
+  text-align: center;
+}
+
+.sidebar__empty-text {
+  color: var(--goto-type-color-secondary);
+}
+
+.sidebar__conv-item {
+  display: flex;
+  align-items: center;
+  gap: var(--goto-spacing-03);
+  width: 100%;
+  padding: var(--goto-spacing-03) var(--goto-spacing-03);
+  border-radius: var(--goto-radius-medium);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  color: var(--goto-type-color-default);
+  transition: background-color 0.15s ease;
+}
+
+.sidebar__conv-item:hover {
+  background-color: var(--goto-surface-color-tertiary);
+}
+
+.sidebar__conv-item--active {
+  background-color: var(--goto-surface-color-brand-secondary);
+  color: var(--goto-type-color-default);
+}
+
+.sidebar__conv-item--active:hover {
+  background-color: var(--goto-surface-color-brand-secondary);
+}
+
+.sidebar__conv-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--goto-type-color-secondary);
+}
+
+.sidebar__conv-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.sidebar__conv-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.sidebar__conv-time {
+  display: block;
+  font-size: 11px;
+  color: var(--goto-type-color-secondary);
+  line-height: 1.3;
+}

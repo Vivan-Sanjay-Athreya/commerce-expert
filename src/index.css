@@ -1,0 +1,22 @@
+@import '~@getgo/chameleon-core/css/gotoadmin.css';
+@import '~@getgo/chameleon-core/css/gotoadmin-compat.css';
+@import '~@getgo/chameleon-core/css/rebranding.css';
+
+html {
+  overflow: hidden;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.root,
+.app__theme-provider {
+  height: inherit;
+}

@@ -1,0 +1,10 @@
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--goto-spacing-05) var(--goto-spacing-06);
+}
+
+.message-list__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}

@@ -1,0 +1,104 @@
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--goto-surface-color-default);
+}
+
+.chat-window__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--goto-spacing-04) var(--goto-spacing-06);
+  border-bottom: 1px solid var(--goto-border-color-default);
+  background-color: var(--goto-surface-color-default);
+  flex-shrink: 0;
+}
+
+.chat-window__badges {
+  display: flex;
+  gap: var(--goto-spacing-02);
+}
+
+.chat-window__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--goto-spacing-02);
+  border-radius: var(--goto-radius-circle);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.chat-window__badge--pm {
+  background-color: #e8f0fe;
+  color: #1a56db;
+}
+
+.chat-window__badge--care {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.chat-window__badge--dev {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.chat-window__button::part(control) {
+  box-shadow: none;
+}
+
+/* Empty state */
+.chat-window__empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--goto-spacing-08);
+  text-align: center;
+  gap: var(--goto-spacing-04);
+}
+
+.chat-window__empty-icon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.chat-window__empty-subtitle {
+  color: var(--goto-type-color-secondary);
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+.chat-window__suggestions {
+  margin-top: var(--goto-spacing-04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--goto-spacing-03);
+}
+
+.chat-window__suggestions-label {
+  color: var(--goto-type-color-secondary);
+}
+
+.chat-window__suggestion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--goto-spacing-02);
+  justify-content: center;
+  max-width: 600px;
+}
+
+.chat-window__chip {
+  padding: var(--goto-spacing-02) var(--goto-spacing-04);
+  border: 1px solid var(--goto-border-color-default);
+  border-radius: var(--goto-radius-circle);
+  font-size: 13px;
+  color: var(--goto-type-color-secondary);
+  background-color: var(--goto-surface-color-default);
+  cursor: default;
+}
