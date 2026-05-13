@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "Chameleon": {
+      "url": "https://mcp.aienablement.global.expertcity.com/internal/mcp",
+      "type": "http"
+    }
+  }
+}
