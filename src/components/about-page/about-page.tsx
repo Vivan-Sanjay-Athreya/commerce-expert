@@ -9,22 +9,11 @@ interface AboutPageProps {
 }
 
 const SLIDES = [
-  {
-    id: 'intro',
-    label: 'Intro',
-  },
-  {
-    id: 'problem',
-    label: 'Problem',
-  },
-  {
-    id: 'usecases',
-    label: 'Use Cases',
-  },
-  {
-    id: 'solution',
-    label: 'Solution',
-  },
+  { id: 'intro', label: 'Intro' },
+  { id: 'problem', label: 'Problem' },
+  { id: 'solution', label: 'Solution' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'usecases', label: 'Use Cases' },
 ];
 
 const SlideIntro = () => (
@@ -33,15 +22,16 @@ const SlideIntro = () => (
     <div className="slide__intro-content">
       <div className="slide__badge">AI Fair 2026</div>
       <h1 className="slide__hero-title">Commerce Expert</h1>
+      <p className="slide__hero-eyebrow">ChatBot</p>
       <p className="slide__hero-subtitle">
-        A single natural-language interface across commerce services —<br />
-        Tax, Titan, Sterling, Boss, and more.
+        One AI-powered interface to rule them all —<br />
+        Answer every question about the customer within split seconds.
       </p>
       <div className="slide__divider" />
       <div className="slide__team">
         <span className="slide__team-label">Built by</span>
         <div className="slide__team-members">
-          {['Shishir', 'Abhinav', 'Vivan', 'Sahib'].map((name, i, arr) => (
+          {['Shishir', 'Abhinav', 'Vivan', 'Sahib', 'Raja'].map((name, i, arr) => (
             <span key={name} className="slide__team-row">
               <span className="slide__team-avatar">{name[0]}</span>
               <span className="slide__team-name">{name}</span>
@@ -57,28 +47,109 @@ const SlideIntro = () => (
 const SlideProblem = () => (
   <div className="slide slide--problem">
     <div className="slide__slide-num">01</div>
-    <h2 className="slide__title">Problem Statement</h2>
+    <h2 className="slide__title">The Problem</h2>
     <p className="slide__lead">
-      Commerce teams today juggle <strong>multiple disconnected systems</strong> to answer a single
-      question — switching between Tax portals, Titan dashboards, Sterling docs, and Boss tooling
-      for every lookup.
+      Commerce support is complicated — <strong>information sources are scattered</strong>, causing delays and reducing
+      efficiency.
     </p>
-    <div className="slide__pain-grid">
+    <div className="slide__pain-list">
       {[
-        { icon: '⏱️', text: 'Slow response times on customer issues' },
-        { icon: '🔀', text: 'Context-switching across 5+ platforms' },
-        { icon: '📖', text: 'Documentation scattered and hard to query' },
-        { icon: '🙋', text: 'Heavy reliance on subject-matter experts' },
-      ].map(({ icon, text }) => (
-        <div key={text} className="slide__pain-card">
+        {
+          icon: '🔍',
+          text: 'Manually looking up multiple systems',
+          sub: 'Core Commerce, Tax, Invoice Service, OnePay, CoPas, and more',
+        },
+        {
+          icon: '🔀',
+          text: 'Context-switching between docs, databases, and external tools',
+          sub: null,
+        },
+        {
+          icon: '🙋',
+          text: 'Heavy reliance on domain experts for every non-trivial question',
+          sub: null,
+        },
+        {
+          icon: '⏱️',
+          text: 'Long response times that hurt productivity and customer experience',
+          sub: null,
+        },
+      ].map(({ icon, text, sub }) => (
+        <div key={text} className="slide__pain-row">
           <span className="slide__pain-icon">{icon}</span>
-          <span className="slide__pain-text">{text}</span>
+          <div>
+            <div className="slide__pain-text">{text}</div>
+            {sub && <div className="slide__pain-sub">{sub}</div>}
+          </div>
         </div>
       ))}
     </div>
-    <div className="slide__solution-blurb">
-      <span className="slide__solution-pill">Our answer</span>
-      One chatbot. Any commerce question. Instant answer.
+  </div>
+);
+
+const SlideSolution = () => (
+  <div className="slide slide--solution">
+    <div className="slide__slide-num">02</div>
+    <h2 className="slide__title">The Solution</h2>
+    <p className="slide__sol-tagline">The All-in-one Commerce Support Chatbot</p>
+    <div className="slide__solution-cols">
+      <div className="slide__sol-left">
+        <p className="slide__sol-col-heading">What it provides</p>
+        <div className="slide__provides-list">
+          {[
+            { icon: '🎯', text: 'Contextual, accurate, and actionable responses' },
+            { icon: '💬', text: 'Natural language interaction' },
+            { icon: '⚡', text: 'Reduced dependency on manual lookups' },
+          ].map(({ icon, text }) => (
+            <div key={text} className="slide__provides-row">
+              <span>{icon}</span>
+              <span>{text}</span>
+            </div>
+          ))}
+        </div>
+        <div className="slide__arch-cols">
+          <div className="slide__arch-card">
+            <p className="slide__arch-heading">Frontend</p>
+            <p className="slide__arch-text">Chat-based UI for support reps and engineers</p>
+            <p className="slide__arch-text">Natural language input · Structured response output</p>
+          </div>
+          <div className="slide__arch-card">
+            <p className="slide__arch-heading">Backend</p>
+            <p className="slide__arch-text">AI-powered service integrated with:</p>
+            <p className="slide__arch-sub">Commerce docs · Operational databases · Tax · Titan · Sterling · Boss</p>
+          </div>
+        </div>
+      </div>
+      <div className="slide__sol-divider" />
+      <div className="slide__sol-right">
+        <p className="slide__sol-col-heading">How it works</p>
+        <div className="slide__steps">
+          {[
+            { n: '1', text: 'User types a query in natural language' },
+            { n: '2', text: 'AI resolves the intent and routes to the right data source' },
+            { n: '3', text: 'Response is returned with context, data, and actionable next steps' },
+          ].map(({ n, text }) => (
+            <div key={n} className="slide__step">
+              <span className="slide__step-num">{n}</span>
+              <span className="slide__step-text">{text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const SlideArchitecture = () => (
+  <div className="slide slide--architecture">
+    <div className="slide__slide-num">03</div>
+    <h2 className="slide__title">Architecture</h2>
+    <div className="slide__arch-diagram">
+      <img
+        src={`${process.env.PUBLIC_URL}/flow-diagram.png`}
+        alt="Commerce Expert flow diagram"
+        className="slide__arch-img"
+      />
     </div>
   </div>
 );
@@ -89,35 +160,34 @@ const CASES = [
     color: '#3b82f6',
     icon: '🧾',
     query:
-      '"What tax number is configured for this customer? Which taxes are exempted and is the SKU tax code correct?"',
+      '"Customer is not being taxed the right way — what is the tax number configured for them? What is the tax code for a particular SKU? What taxes are being exempted for a customer?"',
   },
   {
     service: 'Commerce Care',
     color: '#f59e0b',
-    icon: '🎧',
+    icon: '💳',
     query:
-      '"Customer can\'t access the Billing section. Quote validation is failing from the SFDC side — what\'s wrong?"',
+      '"Customer is not able to access the Billing section." "I am not able to validate the quote, or create quote is failing from SFDC side."',
   },
   {
     service: 'Amplitude',
     color: '#8b5cf6',
     icon: '📊',
     query:
-      '"Customer sees \'Something went wrong\' during purchase. What do the event logs show?"',
+      '"The customer is seeing \'Something went wrong. Please try again later\' error when trying to make a purchase."',
   },
   {
     service: 'Titan Commerce',
     color: '#10b981',
-    icon: '⚙️',
-    query:
-      '"Customer can\'t turn off auto-renew for their subscription from GoToAdmin — how do I fix this?"',
+    icon: '🔄',
+    query: '"Customer is not able to turn off auto-renew for a subscription from GoToAdmin."',
   },
 ];
 
 const SlideUseCases = () => (
   <div className="slide slide--usecases">
-    <div className="slide__slide-num">02</div>
-    <h2 className="slide__title">Example Use Cases</h2>
+    <div className="slide__slide-num">04</div>
+    <h2 className="slide__title">What can we do today?</h2>
     <div className="slide__cases-grid">
       {CASES.map(({ service, color, icon, query }) => (
         <div key={service} className="slide__case-card" style={{ '--case-color': color } as React.CSSProperties}>
@@ -132,53 +202,7 @@ const SlideUseCases = () => (
   </div>
 );
 
-const SlideSolution = () => (
-  <div className="slide slide--solution">
-    <div className="slide__slide-num">03</div>
-    <h2 className="slide__title">Solution &amp; Outcome</h2>
-    <div className="slide__solution-cols">
-      <div className="slide__sol-col">
-        <p className="slide__sol-col-heading">Tools Planned</p>
-        <div className="slide__tools-list">
-          {[
-            { icon: '💬', name: 'Chat UI', desc: 'Natural-language conversational interface' },
-            { icon: '🤖', name: 'AI Backend', desc: 'LLM + RAG over commerce documentation' },
-            { icon: '📚', name: 'Doc Integration', desc: 'Tax · Titan · Sterling · Boss docs' },
-            { icon: '🗄️', name: 'Live Data', desc: 'Real-time queries to databases & systems' },
-          ].map(({ icon, name, desc }) => (
-            <div key={name} className="slide__tool-row">
-              <span className="slide__tool-row-icon">{icon}</span>
-              <div>
-                <div className="slide__tool-row-name">{name}</div>
-                <div className="slide__tool-row-desc">{desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="slide__sol-divider" />
-      <div className="slide__sol-col">
-        <p className="slide__sol-col-heading">Expected Outcome</p>
-        <p className="slide__sol-outcome-text">
-          A working prototype that helps <strong>PMs, care reps, and developers</strong> get instant
-          answers on API integration, service behaviour, and operational data.
-        </p>
-        <div className="slide__outcome-pills">
-          {[
-            '⚡ Faster query resolution',
-            '🔍 Reduced manual lookups',
-            '🧠 Single knowledge interface',
-            '💬 Natural language access to data',
-          ].map((pill) => (
-            <span key={pill} className="slide__outcome-pill">{pill}</span>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const SLIDE_COMPONENTS = [SlideIntro, SlideProblem, SlideUseCases, SlideSolution];
+const SLIDE_COMPONENTS = [SlideIntro, SlideProblem, SlideSolution, SlideArchitecture, SlideUseCases];
 
 const AboutPage = ({ onClose }: AboutPageProps): JSX.Element => {
   const [current, setCurrent] = useState(0);
@@ -215,7 +239,6 @@ const AboutPage = ({ onClose }: AboutPageProps): JSX.Element => {
 
   return (
     <div className="deck">
-      {/* Top bar */}
       <div className="deck__bar">
         <IconButton aria-label="Back to chat" onClick={onClose}>
           <ArrowLeftOutlinedIcon />
@@ -237,38 +260,30 @@ const AboutPage = ({ onClose }: AboutPageProps): JSX.Element => {
         </span>
       </div>
 
-      {/* Progress bar */}
       <div className="deck__progress-bar">
-        <div
-          className="deck__progress-fill"
-          style={{ width: `${((current + 1) / SLIDES.length) * 100}%` }}
-        />
+        <div className="deck__progress-fill" style={{ width: `${((current + 1) / SLIDES.length) * 100}%` }} />
       </div>
 
-      {/* Slide area */}
       <div className={`deck__stage deck__stage--${direction}${animating ? ' deck__stage--exit' : ''}`}>
         <SlideComponent />
       </div>
 
-      {/* Arrow nav */}
-      <div className="deck__nav">
-        <button
-          className="deck__arrow deck__arrow--prev"
-          onClick={prev}
-          disabled={current === 0}
-          aria-label="Previous slide"
-        >
-          ‹
-        </button>
-        <button
-          className="deck__arrow deck__arrow--next"
-          onClick={next}
-          disabled={current === SLIDES.length - 1}
-          aria-label="Next slide"
-        >
-          ›
-        </button>
-      </div>
+      <button
+        className="deck__arrow deck__arrow--prev"
+        onClick={prev}
+        disabled={current === 0}
+        aria-label="Previous slide"
+      >
+        ‹
+      </button>
+      <button
+        className="deck__arrow deck__arrow--next"
+        onClick={next}
+        disabled={current === SLIDES.length - 1}
+        aria-label="Next slide"
+      >
+        ›
+      </button>
     </div>
   );
 };
