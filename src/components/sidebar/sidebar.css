@@ -104,3 +104,9 @@
   color: var(--goto-type-color-secondary);
   line-height: 1.3;
 }
+
+.sidebar__footer {
+  padding: var(--goto-spacing-03) var(--goto-spacing-03);
+  border-top: 1px solid var(--goto-border-color-default);
+  flex-shrink: 0;
+}

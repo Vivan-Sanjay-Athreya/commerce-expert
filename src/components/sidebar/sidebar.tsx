@@ -1,4 +1,6 @@
-import { GotoBlackYellowIcon, GotoWhiteYellowIcon, MessageDotsOutlinedIcon, AddFilledIcon } from '@getgo/chameleon-icons/react';
+import { useHistory } from 'react-router-dom';
+
+import { GotoBlackYellowIcon, GotoWhiteYellowIcon, MessageDotsOutlinedIcon, AddFilledIcon, InfoOutlinedIcon } from '@getgo/chameleon-icons/react';
 import { Button, Typography } from '@getgo/chameleon-web-react-wrapper';
 
 import { useThemeContext } from 'App';
@@ -48,6 +50,7 @@ const Sidebar = (): JSX.Element => {
   const conversations = useAppSelector(selectConversations);
   const activeId = useAppSelector(selectActiveConversationId);
   const { theme } = useThemeContext();
+  const history = useHistory();
 
   return (
     <aside className="sidebar">
@@ -88,6 +91,17 @@ const Sidebar = (): JSX.Element => {
           ))
         )}
       </nav>
+
+      <div className="sidebar__footer">
+        <Button
+          variant="tertiary"
+          fullWidth
+          leadingIcon={<InfoOutlinedIcon />}
+          onClick={() => history.push('/about')}
+        >
+          About this project
+        </Button>
+      </div>
     </aside>
   );
 };
