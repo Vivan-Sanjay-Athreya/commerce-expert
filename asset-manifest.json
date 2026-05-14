@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/commerce-expert/static/css/main.5611700f.css",
-    "main.js": "/commerce-expert/static/js/main.cbb06b0d.js",
+    "main.css": "/commerce-expert/static/css/main.4818f6d1.css",
+    "main.js": "/commerce-expert/static/js/main.9c41a9c7.js",
     "index.html": "/commerce-expert/index.html",
-    "main.5611700f.css.map": "/commerce-expert/static/css/main.5611700f.css.map",
-    "main.cbb06b0d.js.map": "/commerce-expert/static/js/main.cbb06b0d.js.map"
+    "main.4818f6d1.css.map": "/commerce-expert/static/css/main.4818f6d1.css.map",
+    "main.9c41a9c7.js.map": "/commerce-expert/static/js/main.9c41a9c7.js.map"
   },
   "entrypoints": [
-    "static/css/main.5611700f.css",
-    "static/js/main.cbb06b0d.js"
+    "static/css/main.4818f6d1.css",
+    "static/js/main.9c41a9c7.js"
   ]
 }
